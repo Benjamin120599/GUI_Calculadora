@@ -71,7 +71,6 @@ class Calculadora extends JFrame implements ActionListener {
 		botones(botonFracc, 252, 190, 83, 50);
 		
 		
-		
 		botonCE = new JButton("CE");
 		botones(botonCE, 0, 241, 83, 50);
 		
@@ -119,7 +118,6 @@ class Calculadora extends JFrame implements ActionListener {
 		});
 		
 		
-		
 		boton4 = new JButton("4");
 		numeros(boton4, 0, 343, 83, 50);
 		
@@ -142,7 +140,6 @@ class Calculadora extends JFrame implements ActionListener {
 				numero = 2;				
 			}
 		});
-		
 		
 		
 		boton1 = new JButton("1");
@@ -169,7 +166,6 @@ class Calculadora extends JFrame implements ActionListener {
 		});
 		
 		
-		
 		botonMasMenos = new JButton("\u00B1");
 		botones(botonMasMenos, 0, 445, 83, 50);
 		
@@ -188,16 +184,20 @@ class Calculadora extends JFrame implements ActionListener {
 				n2 = Double.parseDouble(pantalla1.getText());
 				if(numero == 1) {
 					res = res+n2;
-					n1 = res;
+					n1 = 0;
+					n2 = 0;
 				} else if(numero == 2) {
 					res = res-n2;
-					n1 = res;
+					n1 = 0;
+					n2 = 0;
 				} else if(numero == 3) {
 					res = res*n2;
-					n1 = res;
+					n1 = 0;
+					n2 = 0;
 				} else if(numero == 4) {
 					res = res/n2;
-					n1 = res;
+					n1 = 0;
+					n2 = 0;
 				}
 				
 				pantalla1.setText(res+"");
