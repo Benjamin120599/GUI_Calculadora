@@ -189,7 +189,6 @@ class Calculadora extends JFrame implements ActionListener {
 					res = res*n2;
 				} else if(numero == 4) {
 					res = res/n2;
-					n1 = 0;
 					n2 = 0;
 				}
 				
