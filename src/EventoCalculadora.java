@@ -183,8 +183,6 @@ class Calculadora extends JFrame implements ActionListener {
 				n2 = Double.parseDouble(pantalla1.getText());
 				if(numero == 1) {
 					res = res+n2;
-					n1 = 0;
-					n2 = 0;
 				} else if(numero == 2) {
 					res = res-n2;
 					n1 = 0;
