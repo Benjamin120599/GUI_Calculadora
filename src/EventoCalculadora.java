@@ -156,6 +156,7 @@ class Calculadora extends JFrame implements ActionListener {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				n1=0;
 				n1 = Double.parseDouble(pantalla1.getText());
 				res = res+n1;
 				pantalla1.setText("+");
