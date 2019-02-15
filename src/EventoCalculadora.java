@@ -62,12 +62,39 @@ class Calculadora extends JFrame implements ActionListener {
 		
 		botonRC = new JButton("\u221A");
 		botones(botonRC, 84, 190, 83, 50);
+		botonRC.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				n1 = Double.parseDouble(pantalla1.getText());
+				res = Math.sqrt(n1);
+				pantalla1.setText(res+"");
+			}
+		});
 		
 		botonPC = new JButton("x\u00B2");
 		botones(botonPC, 168, 190, 83, 50);
+		botonPC.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				n1 = Double.parseDouble(pantalla1.getText());
+				res = Math.pow(n1, 2);
+				pantalla1.setText(res+"");
+			}
+		});
 		
 		botonFracc = new JButton("1/x");
 		botones(botonFracc, 252, 190, 83, 50);
+		botonFracc.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				n1 = Double.parseDouble(pantalla1.getText());
+				res = 1/n1;
+				pantalla1.setText(res+"");
+			}
+		});
 		
 		
 		botonCE = new JButton("CE");
@@ -78,6 +105,19 @@ class Calculadora extends JFrame implements ActionListener {
 		
 		botonBorrar = new JButton("\u2421");
 		botones(botonBorrar, 168, 241, 83, 50);
+		botonBorrar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(pantalla1.getText().length() == 1) {
+					pantalla1.setText("0");
+				} else {
+					pantalla1.setText(pantalla1.getText().substring(0, pantalla1.getText().length()-1));
+				}
+				
+			}
+		});
+		
 		
 		botonD = new JButton("\u00F7");
 		botones(botonD, 252, 241, 83, 50);
@@ -86,13 +126,20 @@ class Calculadora extends JFrame implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(pantalla2.getText().equals("")) {
-					n2=0;
+					n1=1;
 				} else {
-					n2 = Double.parseDouble(pantalla2.getText());
+					n1 = Double.parseDouble(pantalla2.getText());
 				}
 				
+				if(pantalla1.getText().equals("")) {
+					n2= 1;
+				} else {
+					n2 = Double.parseDouble(pantalla1.getText());
+				}
+				
+				res = 1;
 				n1 = Double.parseDouble(pantalla1.getText());
-				res = n2 / n1;
+				res = n1 / n2;
 				pantalla1.setText("/");
 				pantalla2.setText(res+"");
 				numero = 1;	
@@ -114,18 +161,24 @@ class Calculadora extends JFrame implements ActionListener {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				if(pantalla2.getText().equals("")) {
-					pantalla2.setText(pantalla1.getText());
-					//n2 = Double.parseDouble(pantalla1.getText());
+					n1=1;
 				} else {
-					n2 = Double.parseDouble(pantalla2.getText());
+					n1 = Double.parseDouble(pantalla2.getText());
 				}
 				
-				n1 = Double.parseDouble(pantalla1.getText());			
-				res = n1 * n2;
+				if(pantalla1.getText().equals("")) {
+					n2= 1;
+				} else {
+					n2 = Double.parseDouble(pantalla1.getText());
+				}
+				res = 1;
+				res = res * n2;
 				pantalla1.setText("x");
-				pantalla2.setText(res+"");
+				pantalla2.setText("");
 				numero = 3;
+		
 			}
 		});
 		
@@ -192,6 +245,15 @@ class Calculadora extends JFrame implements ActionListener {
 		
 		botonMasMenos = new JButton("\u00B1");
 		botones(botonMasMenos, 0, 445, 83, 50);
+		botonMasMenos.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				n1 = Double.parseDouble(pantalla1.getText());
+				res = n1 * (-1);
+				pantalla1.setText(res+"");
+			}
+		});
 		
 		boton0 = new JButton("0");
 		numeros(boton0, 84, 445, 83, 50);
@@ -359,7 +421,6 @@ class Calculadora extends JFrame implements ActionListener {
 	}
 }
 
-
 public class EventoCalculadora {
 
 	public static void main(String[] args) {
@@ -373,5 +434,4 @@ public class EventoCalculadora {
 		});
 		
 	}
-
 }
