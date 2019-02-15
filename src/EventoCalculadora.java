@@ -85,11 +85,17 @@ class Calculadora extends JFrame implements ActionListener {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(pantalla2.getText().equals("")) {
+					n2=0;
+				} else {
+					n2 = Double.parseDouble(pantalla2.getText());
+				}
+				
 				n1 = Double.parseDouble(pantalla1.getText());
-				res = n1/n1;
+				res = n2 / n1;
+				pantalla1.setText("/");
 				pantalla2.setText(res+"");
-				pantalla1.setText("\u00F7");
-				numero = 4;				
+				numero = 1;	
 			}
 		});
 		
