@@ -47,7 +47,7 @@ class Calculadora extends JFrame implements ActionListener {
 			pantalla1.addActionListener(this);
 		add(pantalla1);
 		
-		pantalla2 = new JTextField();
+		pantalla2 = new JTextField("0");
 			pantalla2.setFont(font3);
 			pantalla2.setBackground(new Color(241, 232, 230));
 			pantalla2.setBorder(null);
@@ -108,11 +108,17 @@ class Calculadora extends JFrame implements ActionListener {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(pantalla2.getText().equals("")) {
+					n2=0;
+				} else {
+					n2 = Double.parseDouble(pantalla2.getText());
+				}
+				
 				n1 = Double.parseDouble(pantalla1.getText());
-				res = res*n1;
-				pantalla2.setText(res+"");
+				res = n2 * n1;
 				pantalla1.setText("x");
-				numero = 3;				
+				pantalla2.setText(res+"");
+				numero = 3;
 			}
 		});
 		
@@ -132,11 +138,17 @@ class Calculadora extends JFrame implements ActionListener {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(pantalla2.getText().equals("")) {
+					n2=0;
+				} else {
+					n2 = Double.parseDouble(pantalla2.getText());
+				}
+				
 				n1 = Double.parseDouble(pantalla1.getText());
-				res = res-n1;
+				res = n1 - n2;
 				pantalla1.setText("-");
 				pantalla2.setText(res+"");
-				numero = 2;				
+				numero = 2;		
 			}
 		});
 		
@@ -156,8 +168,14 @@ class Calculadora extends JFrame implements ActionListener {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(pantalla2.getText().equals("")) {
+					n2=0;
+				} else {
+					n2 = Double.parseDouble(pantalla2.getText());
+				}
+				
 				n1 = Double.parseDouble(pantalla1.getText());
-				res = res+n1;
+				res = n2 + n1;
 				pantalla1.setText("+");
 				pantalla2.setText(res+"");
 				numero = 1;
